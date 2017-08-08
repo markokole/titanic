@@ -1,0 +1,43 @@
+tid                 ,columns                                                                  ,SGD  ,Gauss  ,LogReg
+2017/07/31 14:24:37,"Pclass, Title, ActualAge, embarkedClass, SexCode, AgeClass, Female, Male",0.7809,0.7795,0.7893
+2017/07/31 14:24:53,"Pclass, Title, ActualAge, embarkedClass, SexCode, AgeClass, Female, Male",0.7809,0.7795,0.7893
+2017/07/31 14:29:10,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7809,0.7795,0.7893
+2017/07/31 14:38:42,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7865,0.7795,0.7907,TitleClass divided by social status
+2017/07/31 15:09:18,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7865,0.7795,0.7907,TitleClass divided by social status. To Kaggle
+2017/07/31 15:19:09,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7699,0.7868,0.8025,NaN is replaced by median
+2017/07/31 15:21:07,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7699,0.7868,0.8025,NaN is replaced by median. To Kaggle
+2017/07/31 15:24:20,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7865,0.7795,0.7907,
+2017/07/31 15:33:10,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7865,0.7795,0.7907,0.8287,Decision Tree Classifier added
+2017/07/31 15:35:34,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7865,0.7795,0.7907,0.8287,Decision Tree Classifier added
+2017/07/31 15:35:42,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7865,0.7795,0.7907,0.8287,Decision Tree Classifier added. To Kaggle
+2017/08/01 08:40:41,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, AgeClass, Female, Male",0.7699,0.7868,0.8025,0.835,Decision Tree Classifier added. To Kaggle
+2017/08/01 12:14:30,"Pclass, Title, ActualAge, EmbarkedClass, SexCode, Age2, AgeClass, Female, Male",0.7868,0.7868,0.8013,0.9057,Decision Tree Classifier added. NaN for feature age is Sex dependent. To Kaggle
+2017/08/02 11:21:27,"Pclass, Title, EmbarkedClass, SexCode, Age, AgeClass, Female, Male",0.7621,0.7868,0.7924,0.9057,Went to 4 file structure.
+2017/08/02 12:36:18,"Pclass, Title, EmbarkedClass, SexCode, Age, AgeClass, Female, Male",0.7621,0.7868,0.7924,0.9057,Went to 4 file structure.
+2017/08/02 12:43:54,"Pclass, Title, EmbarkedClass, SexCode, Age, AgeClass, Female, Male",0.7621,0.7868,0.7924,0.9057,Went to 4 file structure.
+2017/08/02 12:45:17,"Pclass, Title, EmbarkedClass, SexCode, Age, Female, Male",0.6947,0.7868,0.7912,0.9057,
+2017/08/02 12:46:18,SexCode,0.7868,0.7868,0.7868,0.7868,
+2017/08/02 12:55:56,Age,0.6229,0.6364,0.6162,0.6902,
+2017/08/02 12:56:05,AgeClass,0.6162,0.6274,0.6162,0.6274,
+2017/08/02 12:56:23,"AgeClass, SexCode",0.7868,0.7868,0.7868,0.7868,
+2017/08/02 12:56:40,"AgeClass, SexCode, Pclass",0.7497,0.7901,0.7969,0.8092,
+2017/08/02 12:56:56,"AgeClass, SexCode, Pclass, Title",0.8002,0.789,0.7969,0.8126,
+2017/08/02 12:57:15,"AgeClass, SexCode, Pclass, Title, EmbarkedClass",0.7172,0.7755,0.7912,0.8316,
+2017/08/02 12:57:26,"AgeClass, SexCode, Pclass, Title, EmbarkedClass, Age",0.6285,0.78,0.7924,0.9057,
+2017/08/02 12:57:45,"AgeClass, Pclass, Title, EmbarkedClass, Age, Female, Male",0.642,0.7868,0.7924,0.9057,
+2017/08/02 12:59:25,"'AgeClass,  'Pclass,  'Title,  'EmbarkedClass,  'Age,  'Female,  'Male'",0.642,0.7868,0.7924,0.9057,
+2017/08/02 13:16:39,"AgeClass, Pclass, Title, EmbarkedClass, Age, Female, Male",0.642,0.7868,0.7924,0.9057,
+2017/08/02 14:30:08,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.908,Sex class division has been defined more detailed - into 6 classes
+2017/08/02 14:31:53,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.908,Sex class division has been defined more detailed - into 6 classes
+2017/08/02 14:33:07,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.6285,0.78,0.7924,0.9057,Sex class division - old one
+2017/08/02 14:33:50,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.908,"Sex class division - new one, 6 classes"
+2017/08/02 14:51:55,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.908,"Sex class division - new one, 6 classes. To Kaggle"
+2017/08/03 15:47:31,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8878,Decision Tree Classifier - minimum_sample_split is 5
+2017/08/04 10:57:36,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8328,SGDClassifier to Kaggle - 0.76555
+2017/08/04 11:02:18,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8328,Gauss NB to Kaggle
+2017/08/04 11:02:44,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8328,Gauss NB to Kaggle - 0.76077
+2017/08/04 11:03:50,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8328,Logistic Regression to Kaggle - 0.74641
+2017/08/04 11:06:37,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8328,Logistic Regression to Kaggle
+2017/08/04 11:52:44,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8328,Tree Regression to Kaggle - 0.78947
+2017/08/04 12:02:17,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8934,max_depth=9 - Tree Regression to Kaggle
+2017/08/04 14:29:19,"AgeClass, Pclass, Title, EmbarkedClass, Age, SexCode",0.7834,0.7935,0.807,0.8395,0.9068,Random Forest Classifier added
