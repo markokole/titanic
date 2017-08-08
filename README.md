@@ -18,3 +18,5 @@ d) utility.py - utility functions for runing statistics on dataset and file mani
 e) log.log - example of a log file - when running the code, a line is appended to the file. 
    The line consists of some basic information about the run itself
 
+
+The paths would need to be adjusted, if someone wants to run the code.
