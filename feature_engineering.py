@@ -8,7 +8,7 @@ def ageClass(n):
         ageC = 1
     elif (n <= 48):
         ageC = 2
-    elif (n <= 64):
+    elif (n <= 99):
         ageC = 3
     else:
         ageC = 4
@@ -154,26 +154,24 @@ def prepare_data(initialDF):
     ##TRAIN SET
     #Pick the features:
     #Pclass - ticket class - 1 = 1st, 2 = 2nd, 3 = 3rd
-    x_trainDF = initialDF[["PassengerId", "Pclass", "Age", "Sex", "Name", "Embarked"]]
-    #y_trainDF = initialDF[["Survived"]]
-    #print type(x_trainDF)
+    prepare_df = initialDF[["PassengerId", "Pclass", "Age", "Sex", "Name", "Embarked", "SibSp", "Parch", "Fare"]]
 
-    x_trainDF.is_copy = False
+    prepare_df.is_copy = False
 
     #title
     #parse title from name feature
-    x_trainDF["Title"] = x_trainDF["Name"].map(lambda x: titleClass(x))
-    x_trainDF = x_trainDF.drop("Name", axis=1)
-    #print x_trainDF["Title"]
+    prepare_df["Title"] = prepare_df["Name"].map(lambda x: titleClass(x))
+    prepare_df = prepare_df.drop("Name", axis=1)
+    #print prepare_df["Title"]
 
     #feature ActualAge is added to tell which instances have value for
     #  feature Age (1) and which do not (0)
-    #x_trainDF["ActualAge"] = np.where(x_trainDF["Age"].isnull(), 0, 1)
+    #prepare_df["ActualAge"] = np.where(x_trainDF["Age"].isnull(), 0, 1)
     #print "First 10 instances with feature ActualAge:\n", x_trainDF.head(10)
 
     #Embarked class
-    x_trainDF["EmbarkedClass"] = x_trainDF["Embarked"].map(lambda x: embarkedClass(x))
-    x_trainDF = x_trainDF.drop("Embarked", axis=1)
+    prepare_df["EmbarkedClass"] = prepare_df["Embarked"].map(lambda x: embarkedClass(x))
+    prepare_df = prepare_df.drop("Embarked", axis=1)
 
 
     ###ENCODE
@@ -181,15 +179,17 @@ def prepare_data(initialDF):
     #female -> 0, male -> 1
     from sklearn.preprocessing import LabelEncoder
     encoder = LabelEncoder()
-    sex_cat_train = encoder.fit_transform(x_trainDF["Sex"])
-    x_trainDF["SexCode"] = sex_cat_train
-    #print "First 10 instances with new feature SexCode:\n", x_trainDF[:10]
+    sex_cat_train = encoder.fit_transform(prepare_df["Sex"])
+    prepare_df["SexCode"] = sex_cat_train
+    #print "First 10 instances with new feature SexCode:\n", prepare_df[:10]
 
     #drop the Sex feature with male/female values
-    x_trainDF = x_trainDF.drop("Sex", axis=1)
+    prepare_df = prepare_df.drop("Sex", axis=1)
 
-    maleAvgAge, femaleAvgAge = calculate_avg_age_sex(x_trainDF)
-    x_trainDF = ageManipulation(x_trainDF, maleAvgAge, femaleAvgAge)
+    #Age
+    prepare_df["AgeMinusOne"]  = initialDF["Age"].fillna(-1)
+    maleAvgAge, femaleAvgAge = calculate_avg_age_sex(prepare_df)
+    prepare_df = ageManipulation(prepare_df, maleAvgAge, femaleAvgAge)
 
     ###REPLACE NaN
     # Replace missing values with median
@@ -201,16 +201,17 @@ def prepare_data(initialDF):
     # transformation results a plain Numpy array - conversion to Pandas DataFrame is needed
     # column names after this transformation are erased and numbers from 0 on are used. Thats the reason
     # why columns parameter is added - to keep the column names
-    #imputer.fit(x_trainDF)
-    #x_trainDF = pd.DataFrame(imputer.transform(x_trainDF), columns= x_trainDF.columns)
-    # print "First 10 instances with NaN for Age feature being 28:\n", x_trainDF[:10]
+    #imputer.fit(prepare_df)
+    #prepare_df = pd.DataFrame(imputer.transform(x_trainDF), columns= prepare_df.columns)
+    # print "First 10 instances with NaN for Age feature being 28:\n", prepare_df[:10]
 
     # Put age in a class by using anonymous function lambda
-    x_trainDF["AgeClass"] = x_trainDF["Age"].map(lambda x: ageClass(x))
+    prepare_df["AgeClass"] = prepare_df["Age"].map(lambda x: ageClass(x))
     #print x_trainDF[:20]
 
-
-    #x_trainDF["HasFamily"] = x_trainDF["SibSp"] + x_trainDF["Parch"]
+    #Family Size feature
+    prepare_df["FamilySize"] = prepare_df["SibSp"] + prepare_df["Parch"]
+    prepare_df = prepare_df.drop(["SibSp", "Parch"], axis=1)
     #x_trainDF["HasFamily"] = x_trainDF["HasFamily"].map(lambda x: 0 if x < 1 else 1)
 
     ##one-hot encoding for Sex. The code makes a feature out of each gender
@@ -222,10 +223,18 @@ def prepare_data(initialDF):
     sex_one_hot_train = np.array(sex_cat_1hot_train.toarray())
 
     #we add new columns to the DataFrame - Female and Male
-    x_trainDF["Female"] = sex_one_hot_train[:,0]
-    x_trainDF["Male"] = sex_one_hot_train[:,1]
+    prepare_df["Female"] = sex_one_hot_train[:,0]
+    prepare_df["Male"] = sex_one_hot_train[:,1]
+
+    #x_trainDF["FamilySize"] = x_trainDF[""]
 
     #print "First 10 instances with each gender having own feature:\n", x_trainDF[:10]
 
-    return x_trainDF
+    #Fare
+    #prepare_df["Fare"] = prepare_df["Fare"].fillna(-1)
+    med_fare = prepare_df["Fare"].median()
+    prepare_df["Fare"] = prepare_df["Fare"].fillna(prepare_df["Fare"].median())
+    #print med_fare
+
+    return prepare_df
     #END prepare_data
