@@ -16,7 +16,7 @@ c) feature_engineering.py - code that manipulates with the dataset's features to
 d) utility.py - utility functions for runing statistics on dataset and file manipulation
 
 e) log.log - example of a log file - when running the code, a line is appended to the file. 
-   The line consists of some basic information about the run itself
+   The line consists of some basic information about the run itself. Accuracy scores in the log file are for test set
    
 f) ensemble_forest.py - ensemble models are here: - random forest, voting, bagging
 
